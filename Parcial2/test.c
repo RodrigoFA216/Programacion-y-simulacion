@@ -1,6 +1,6 @@
-// Biblioteca
+#include <stdio.h>
+#include <math.h>
 
-//constantes
 #define PI 3.141592653589793
 
 struct DatosElectricos {
@@ -25,26 +25,14 @@ struct Potencias calcularPotencias(struct DatosElectricos datos) {
     return resultado;
 }
 
-//funcion suma
-float suma (int a, int b) {
-    return (float)a + (float)b;
+int main() {
+    struct DatosElectricos datos;
+    datos.corriente = 5.0;
+    datos.voltaje = 220.0;
+    datos.anguloDesfase = 5.0;
+    struct Potencias resultado = calcularPotencias(datos);
+    printf("Potencia Real: %.2f\n", resultado.potenciaReal);
+    printf("Potencia Aparente: %.2f\n", resultado.potenciaAparente);
+    printf("Potencia Reactiva: %.2f\n", resultado.potenciaReactiva);
+    return 0;
 }
-
-//funcion area_circulo
-float area_circulo (float a) {
-    return PI * (a*a);
-}
-
-float resist_3_paralell (float a, float b, float c) {
-    return (1/((1/a)+(1/b)+(1/c)));
-}
-
-//capacitancia
-float capa_serie(float a, float b){
-    return (1/((1/a)+(1/b)));
-}
-
-float capa_paralel(float a, float b){
-    return (a+b);
-}
-
